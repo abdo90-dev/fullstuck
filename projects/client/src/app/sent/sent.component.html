@@ -1,0 +1,29 @@
+
+   <div class="card-container">
+    <div class="l-card" *ngFor="let i of serviceForm">
+      <div class="l-card__header"  >
+        <h5>{{ i.serviceName }}</h5>
+        <div id="status" class="l-card__status"[ngStyle]="{'background-color': getStatus(i.status)}">
+          <!-- Display status here (e.g., request, in progress, finished) -->
+          <span>{{ i.status }}</span>
+        </div>
+      </div>
+      <div class="l-card__userInfo" >
+        <span>{{ i.fileName }}</span>
+        <span>{{ i.date | date:'medium' }}</span>
+      </div>
+      <section class="l-card__text">
+        <p>{{ i.requirement }}</p>
+      </section>
+      <div class="l-card__user" >
+        <div class="l-card__userImage">
+          <img src="/assets/img/document.png" alt="...">
+        </div>
+        <div class="l-card__userInfo">
+          <span>{{ i.fileName }}</span>
+          <span>{{ i.date | date:'medium' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

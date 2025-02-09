@@ -1,0 +1,35 @@
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<main>
+  <div class = "card">
+    <img [src]="getImageUrl(description.imageUrl)" alt="">
+    <div class="card-content">
+      <h1>
+        {{description.title}}
+      </h1>
+      <p>
+{{description.text}}
+    </p>
+    </div>
+  </div>
+</main>
+
+<div class="wrap">
+    <div class="box" *ngFor="let member of members">
+      <div class="box-top">
+        <img class="box-image" [src]="getImageUrl(member.profile_image)" alt="Girl Eating Pizza">
+        <div class="title-flex">
+          <h3 class="box-title">{{member.first}}</h3>
+        </div>
+        <p class="description">{{member.description}}</p>
+      </div>
+      <a (click)="openChat(member)" class="button">Contact</a>
+    </div>
+   
+  </div>
+  <app-chat [selectedContact]="selectedContact" [messages]="messages"></app-chat>
+
+  

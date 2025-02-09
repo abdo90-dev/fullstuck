@@ -1,0 +1,100 @@
+  .new_message_head button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+  }
+  .new_message_head {
+    background: #f5f3f3 none repeat scroll 0 0;
+    float: left;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 18px 10px;
+    width: 100%;
+  }
+  .message_section {
+    width: 250px; 
+    height: auto;
+    border: 1px solid #dddddd;
+    margin: 0;
+  }
+  .chat_area {
+    float: left;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #777777;
+    width: 100%;
+  }
+
+  .modal-dialog {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+  }
+  .chat_area li {
+    padding: 14px 14px 0;
+  }
+  .chat_area li .chat-img1 img {
+    height: 40px;
+    width: 40px;
+  }
+  .chat_area .chat-body1 {
+    margin-left: 50px;
+  }
+  .chat-body1 p {
+    background: #fbf9fa none repeat scroll 0 0;
+    padding: 10px;
+  }
+  .chat_area .admin_chat .chat-body1 {
+    margin-left: 0;
+    margin-right: 50px;
+  }
+  .chat_area li:last-child {
+    padding-bottom: 10px;
+  }
+  .message_write {
+    background: #f5f3f3 none repeat scroll 0 0;
+    float: left;
+    padding: 15px;
+    width: 100%;
+  }
+  .message_write textarea.form-control {
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+  }
+  .chat_bottom {
+    float: left;
+    margin-left: 35px;
+    width: 100%;
+  }
+  .upload_btn {
+    color: #777777;
+  }
+.container{
+  position: relative;
+ width: 40%;
+ right: 0;
+ margin-right: 0;
+ padding: 0;
+}
+.chat_container{
+  // position: relative;
+  padding-right: 0;
+  width: 1000px;
+  right: 0;
+}
+.main_section {
+  position: fixed;
+  
+  bottom: 0;
+  right: 0;
+  // z-index: 1000;
+}
+
+.chat-img{
+  padding-right: 5px;
+  width: 25%;
+  height: 55%;
+  size: 20px;
+}

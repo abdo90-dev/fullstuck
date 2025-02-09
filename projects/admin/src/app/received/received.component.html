@@ -1,0 +1,95 @@
+<!-- <div class="card-container">
+  <div class="l-card" *ngFor="let i of serviceForm">
+    <div class="l-card__header">
+      <h5>{{ i.serviceName }}</h5>
+      <div
+        id="status"
+        class="l-card__status"
+        [ngStyle]="{'background-color': getStatus(i.status)}"
+      >
+        <span>{{ i.status }}</span>
+      </div>
+    </div>
+    <div class="l-card__userInfo">
+      <span>{{ i.name }}</span>
+      <span>{{ i.email }}</span>
+    </div>
+    <section class="l-card__text">
+      <p>{{ i.requirement }}</p>
+    </section>
+    <div class="l-card__user" (click)="downloadFile(i.files, i.fileName)">
+      <div class="l-card__userImage">
+        <img src="/assets/img/document.png" alt="..." />
+      </div>
+      <div class="l-card__userInfo">
+        <span>{{ i.fileName }}</span>
+        <span>{{ i.date }}</span>
+      </div>
+    </div>
+    <div class="button-container">
+      <ng-container *ngIf="i.status === 'in progress'; else acceptButton">
+        <button class="btn btn-primary" (click)="openModal(i.serviceName,i.id,i.email)">finish</button>
+      </ng-container>
+      <ng-template #acceptButton>
+        <button class="btn btn-primary" (click)="changeStatus(i.id)">accept</button>
+      </ng-template>
+    </div>
+  </div>
+</div> -->
+<!-- HTML Setup -->
+<section>
+	<!-- heading -->
+	<div class="container">
+		<div class="row">			
+			<div class="mx-auto">
+				<div class="col-lg-12">				
+					<h1 class="display-2 heading-big heading-big-square text-center">Hover Cards Transition Animation</h1>										
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- cards -->
+	<div class="container">
+		<div class="row">			
+			<div class="mx-auto">
+				<div class="col-lg-12">
+					<div class="text-center my-3">
+						<h6 class="text-center my-5">Transform Transition cards samples</h6>						
+						<div class="card-deck no-gutters">
+
+							<div class="col-12 col-sm-6 col-md-6 col-lg-3" *ngFor="let i of serviceForm">
+								<div class="card h-100 mb-4">                    
+									<div class="card-header">                                
+										<h5 class="card-title m-0 p-0 font-weight-bolder text-secondary">{{i.serviceName}}</h5>
+									</div>
+									<div class="card-body text-left">
+										<p class="card-text" (click)="downloadFile(i.files, i.fileName)">{{i.fileName}} </p>
+										<span class="font-lead-base font-weight-bold text-muted">{{i.requirement}}</span>
+										<div class="promotion-promo">by {{i.name}}</div>
+										<div class="promotion-price">
+											<!-- <div class="promotion-price-desc">Now</div> -->
+											<div class="promotion-price-text">{{i.status}}</div>                                    
+										</div>
+									</div>
+									<div class="card-footer">
+					<ng-container *ngIf="i.status === 'request'; else finish">
+                    <a class="btn btn-warning" (click)="changeStatus(i.id,'in progress')">Accept</a>
+                    <a class="btn btn-warning" (click)="changeStatus(i.id,'rejected')">Reject</a>
+				</ng-container>
+				<ng-template  #finish >
+					<a *ngIf="i.status === 'in progress';" class="btn btn-warning" (click)="changeStatus(i.id,'finished',i.serviceName,i.email)">finish</a>
+				</ng-template>
+                </div>                  
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		</div>
+	</div>
+	
+	
+
+</section>

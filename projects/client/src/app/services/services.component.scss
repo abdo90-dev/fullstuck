@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.cards {
+    position: relative;
+  }
+  
+  .status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 5px;
+    font-weight: bold;
+  }
+.card-containers {
+  height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+  
+  .cards {
+    margin: 20px;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    /* Add other styling properties as needed */
+  }
+  .card {
+    position: relative;
+  }
+  
+  .media-body {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cards img {
+    width: 100px;
+    height: 100px;
+    /* Add other styling properties as needed */
+  }
+  
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    /* Add other styling properties as needed */
+  }
+html {
+  font: 500 100%/1.4 system-ui;
+  background-color: #ccc;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0rem;
+  padding: 1rem;
+}
+
+.cards {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 2rem;
+  background: #f8f3e8;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.cards > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 600/300;
+}
+
+.cards > h2 {
+  margin-top: 1rem;
+  font-family: "Kalam", cursive;
+  font-weight: normal;
+  font-size: 2rem;
+  color: #4a4a7d;
+  text-align: center;
+}
+
+.cards > p {
+  font-family: "Kalam", cursive;
+  font-size: 1rem;
+  color: #5e5e89;
+  text-align: center;
+}

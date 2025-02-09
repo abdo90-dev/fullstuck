@@ -1,0 +1,64 @@
+<div class="bell-icon" tabindex="0" (click)="toggleDropdown() " style="z-index: 10;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="30px" viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve">
+      <g class="bell-icon__group">
+        <path class="bell-icon__ball" id="ball" fill-rule="evenodd" stroke-width="1.5" clip-rule="evenodd" fill="none" stroke="#currentColor" stroke-miterlimit="10" d="M28.7,25 c0,1.9-1.7,3.5-3.7,3.5s-3.7-1.6-3.7-3.5s1.7-3.5,3.7-3.5S28.7,23,28.7,25z"/>
+        <path class="bell-icon__shell" id="shell" fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" stroke="#currentColor" stroke-width="2" stroke-miterlimit="10" d="M35.9,21.8c-1.2-0.7-4.1-3-3.4-8.7c0.1-1,0.1-2.1,0-3.1h0c-0.3-4.1-3.9-7.2-8.1-6.9c-3.7,0.3-6.6,3.2-6.9,6.9h0 c-0.1,1-0.1,2.1,0,3.1c0.6,5.7-2.2,8-3.4,8.7c-0.4,0.2-0.6,0.6-0.6,1v1.8c0,0.2,0.2,0.4,0.4,0.4h22.2c0.2,0,0.4-0.2,0.4-0.4v-1.8 C36.5,22.4,36.3,22,35.9,21.8L35.9,21.8z"/>
+      </g>
+    </svg>
+    <div id="notificationList" class="notification-dropdown" *ngIf="isDropdownVisible" style="display: block; overflow-y: scroll !important">
+        <section>
+            <div class="square_box box_three"></div>
+            <div class="square_box box_four"></div>
+            <div class="container mt-5" *ngFor="let form of serviceForm">
+              <div class="row">
+ 
+                <div class="col-sm-12" *ngIf="form.status === 'in progress'" >
+                  <div class="alert fade alert-simple alert-success alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show">
+                    <button type="button" class="btn-close" (click)="removeNotification(form)">
+                      <span class="icon-cross"></span>
+                      <span class="visually-hidden">Close</span>
+                    </button>
+                   
+                    <strong class="font__weight-semibold">Congrats!</strong> the your request has been accepted
+                  </div>
+                </div>
+          
+                <div class="col-sm-12" *ngIf="form.status === 'sent back'" (click)="removeNotification(form)">
+                  <div class="alert fade alert-simple alert-info alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+                    <button type="button" class="btn-close" (click)="removeNotification(form)">
+                      <span class="icon-cross"></span>
+                      <span class="visually-hidden">Close</span>
+                    </button>
+                    <strong class="font__weight-semibold">Congrats!</strong> your request of {{form.serviceName}} for the file {{form.fileName}} has been finished by{{form.name}}
+                  </div>
+          
+                </div>
+          
+
+          
+                <div class="col-sm-12" *ngIf="form.status === 'rejected'">
+                  <div class="alert fade alert-simple alert-danger alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show" role="alert" data-brk-library="component__alert">
+                    <button type="button" class="btn-close" (click)="removeNotification(form)">
+                      <span class="icon-cross"></span>
+                      <span class="visually-hidden">Close</span>
+                    </button>
+                    <strong class="font__weight-semibold">Oh snap!</strong> your request of {{form.serviceName}} for the file {{form.fileName}} has been rejected by {{form.name}}
+                  </div>
+                </div>
+          
+
+          
+              </div>
+            </div>
+          </section>
+      </div>
+      <div class="notification-amount">
+        <span>{{serviceForm.length}}</span>
+      </div>
+  </div>
+
+ 
+
+
+
+

@@ -1,0 +1,22 @@
+<div style="width: 100%; background-color: rgb(101, 101, 236); text-align: center; display: flex; justify-content: center; border-radius: 50px; margin-top: 5%;"><h1>news</h1></div>
+<div class="container">
+  <div class="carousel" [style.transform]="'rotateY(' + (360 / cards.length) + 'deg)'">
+    <div *ngFor="let item of cards; let i = index" class="carousel__face"
+      [style.transform]="'rotateY(' + ((360 / cards.length) * i) + 'deg) translateZ(' + calculateTranslateZ() + 'px)'"
+      [style.backgroundImage]="'url(' + getImageUrl(item.imageUrl) + ')'">
+      <div class="carousel__content">
+        <h3>{{item.title}}</h3>
+        <p>{{item.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="width: 100%; background-color: rgb(101, 101, 236); text-align: center; display: flex; justify-content: center; border-radius: 50px; margin-top: 8%;"><h1>achievements</h1></div>
+<div class="card-container" style="padding-top: 200px;">
+  <div *ngFor="let i of achievements" class="card" [style.transform]="randomRotate()" style="width: 400px; height: 400px;">
+    <img [src]="getImageUrl(i.imageUrl)">
+    <h2>{{i.title}}</h2>
+    <p>{{ i.text }}</p>
+    
+  </div>
+</div>

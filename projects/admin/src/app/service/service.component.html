@@ -1,0 +1,113 @@
+<!-- <div class="wrap animate pop" *ngFor="let card of cards">
+  <div class="overlay">
+    <div class="overlay-content animate slide-left delay-2">
+      <h1 class="animate slide-left pop delay-4">{{card.title}}</h1>
+
+    </div>
+    <div class="image-content animate slide delay-5" [style.background-image]="'url(' + getImageUrl(card.imageUrl) + ')'"></div>
+        <div class="dots animate">
+          <div class="dot animate slide-up delay-6"></div>
+          <div class="dot animate slide-up delay-7"></div>
+          <div class="dot animate slide-up delay-8"></div>
+        </div>
+  </div>
+    <div class="text">
+      <p><img class="inset" [src]=" getImageUrl(card.imageUrl)" alt="" />{{card.text}}</p>
+      <button class="btn btn-danger" (click)="openDeleteConfirmationPopup(card.title)">DELETE</button>
+      <button class="btn fill" (click)="openUpdatePopup(card)" >UPDATE</button>
+    </div>
+</div>
+<div style="height: 200px; width: 200px; background-image: url('/assets/img/pngtree-button-plus-icon-png-image_3566852.jpg'); background-size: 100% 100%; border-radius: 50%;" (click)="openModal('service')"></div> -->
+<div class="mycontainer">
+  <div class="plus" style="width: 7%; height: 7%; border: 2px solid; right: 0; top: 0; position: absolute; z-index: 10; border-radius: 50%; background-image: url('/assets/img/pngtree-button-plus-icon-png-image_3566852.jpg'); background-size: 100% 100%; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);" (click)="openModal('service')"> </div>
+<div class="mycard" *ngFor="let card of cards">
+  <div class="wrapper">
+    <div class="banner-image" style="background-image: url({{getImageUrl(card.imageUrl)}});"> </div>
+    <h1> {{card.title}}</h1>
+    {{card.text}}
+   </div>
+   <div class="button-wrapper"> 
+   <button class="btn outline"(click)="openDeleteConfirmationPopup(card.title)">DELETE</button>
+     <button class="btn fill"(click)="openUpdatePopup(card)" >UPDATE</button>
+   </div>
+     </div>
+    </div>
+<!-- Modal template -->
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': isDeleteConfirmationOpen}" (click)="cancelDelete()">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Deletion</h5>
+        <button type="button" class="close" (click)="cancelDelete()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="modal-body">
+        Are you sure you want to delete this card?
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <!-- Cancel Button -->
+        <button type="button" class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+        
+        <!-- Delete Button -->
+        <button type="button" class="btn btn-danger" (click)="deleteCard()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': isUpdatePopupOpen}" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Update Card</h5>
+        <button type="button" class="close" (click)="cancelUpdate()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form>
+          <!-- Card Title -->
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="description" [(ngModel)]="cardToUpdate.title">
+          </div>
+          
+          <!-- Card Image (you can use ngModel with an image URL property) -->
+      <div class="form-group" style="padding-top: 15px; padding-bottom: 15px;">
+        <label for="fileInput">Upload image:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <div class="col-md-6">
+          <input type="file" (change)="onFileSelected($event)">
+        </div>
+      </div>
+          
+          <!-- Card Description -->
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="title" rows="3" [(ngModel)]="cardToUpdate.text"></textarea>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <!-- Cancel Button -->
+        <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
+        
+        <!-- Update Button -->
+        <button type="button" class="btn btn-primary" (click)="saveUpdatedCard()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

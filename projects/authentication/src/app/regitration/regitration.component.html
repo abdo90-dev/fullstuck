@@ -1,0 +1,47 @@
+<div class="form_wrapper" style="background-color: aliceblue;">
+    <div class="form_container" style="background-color: aliceblue;">
+      <div class="title_container" style="background-color: aliceblue;">
+        <h2>Registration Form</h2>
+      </div>
+      <div class="row clearfix" style="background-color: aliceblue;">
+        <div class="" style="background-color: aliceblue;">
+          <form style="background-color: aliceblue;" (ngSubmit)="sendUserInfo()">
+            <div id="pictureDiv" style="height: 200px; width: 200px; background-image: url('/assets/images.jpeg'); background-size: 100% 100%; border-radius: 50%;" (click)="openFileInput()"></div>
+            <input type="file" id="fileInput" style="display: none;" (change)="handleFileInput($event)" accept="image/*" />
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field">
+                  <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="name" placeholder="First Name" [(ngModel)]="client.first" required />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field">
+                  <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="name" placeholder="Last Name" [(ngModel)]="client.last" required />
+                </div>
+              </div>
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="phone" placeholder="phone number" [(ngModel)]="client.phone_number" required />
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="email" placeholder="Email" [(ngModel)]="client.email" required />
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" name="password" placeholder="Password" [(ngModel)]="client.password" required />
+            </div>
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" name="country" placeholder="country" [(ngModel)]="client.country" required />
+            </div>
+            <button class="button" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

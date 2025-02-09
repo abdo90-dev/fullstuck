@@ -1,0 +1,61 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div style="border-radius: 50%; background-color: brown; height: 70px; width: 70px; position: fixed; left: 85%; bottom: 10px; z-index: 10;" (click)="openChat()"></div>
+
+<div class="cont" style="width: 50%; " *ngIf="isChatOpen">
+<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card chat-app">
+            <div id="plist" class="people-list">
+
+                <ul  class="list-unstyled chat-list mt-2 mb-0">
+                    <li *ngFor="let userCon of users" (click)="selectContact(userCon)" [ngClass]="{'clearfix': true, 'active': selectedContact === userCon}">
+                        <img [src]="getImageUrl(userCon.profile_image)" alt="avatar">
+                        <div class="about">
+                            <div class="name">{{userCon.first}}</div>
+                                                                       
+                        </div>
+                    </li>
+             
+                </ul>
+            </div>
+            <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                <img [src]="getImageUrl(selectedContact.profile_image)" alt="avatar">
+                            </a>
+                            <div class="chat-about">
+                                <h6 class="m-b-0">{{selectedContact.first}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div #scrollContainer class="chat-history" style="height: 400px; overflow-y: scroll !important;">
+                    <ul class="m-b-0">
+                        <li *ngFor="let message of messages.slice(1)" class="clearfix">
+                            <div [ngClass]="getMessageClasses(message.sender)">
+                                 <span class="message-data-time">{{message.timestamp ? formatMessageTime(message.timestamp) : ''}}</span>
+                                <img *ngIf="message.sender === userInfo.email" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
+                            </div>
+                            <div [ngClass]="message.sender === userInfo.email ? 'message other-message float-right':'message my-message'"> {{message.content}} </div>
+                        </li>
+                    </ul>
+                </div>
+                <form [formGroup]="chatForm" (submit)="sendMessage(selectedContact)">
+                <div class="chat-message clearfix">
+                    <div class="input-group mb-0">
+                        <div class="input-group-prepend" (click)="sendMessage(selectedContact)">
+                            <span class="input-group-text"><i class="fa fa-send"></i></span>
+                        </div>
+                        <input type="text" formControlName="message" class="form-control" placeholder="Enter text here...">                                    
+                    </div>
+                </div>
+            </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

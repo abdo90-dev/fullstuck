@@ -1,0 +1,127 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <!-- <img [src]='getImageUrl(client.profile_image)' alt=""/> -->
+                             <div id="pictureDiv" style="height: 200px; width: 200px; background-image: url({{getImageUrl(client.profile_image)}}); background-size: 100% 100%; border-radius: 50%;" (click)="openFileInput()"></div>
+                                <input id="fileInput" style="display: none;" type="file" name="file" (change)="handleFileInput($event)"/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="profile-head" style=" justify-content:center ;">
+                                    <h1 style="text-align: center; font-family: fantasy;">
+                                       {{client.first}}
+                                    </h1>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" (click)="openModal()">update profile</button>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 100px;">
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">first name</label>
+                                            </div>
+                                            <div class="col-md-6" style="font-size: large;">
+                                                <p>{{client.first}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6" >
+                                                <label style="font-size: large;">last name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">{{client.last}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">{{client.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">{{client.phone_number}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">country</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">{{client.country}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Hourly Rate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">10$/hr</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">230</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">English Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label style="font-size: large;">Availability</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p style="font-size: large;">6 months</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+

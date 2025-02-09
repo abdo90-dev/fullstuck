@@ -1,0 +1,56 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div #mainSection class="main_section" *ngIf="isVisible" >
+   <div class="container" >
+      <div class="chat_container" >
+         <div class="col-sm-9 message_section" style="width: 30%;">
+		 <div class="row">
+		 <div class="new_message_head">
+         <span class="chat-img pull-left">
+            <img [src]="getImageUrl(selectedContact.profile_image)" alt="User Avatar" class="img-circle">
+         </span>
+            <div class="chat-body clearfix">
+               <div class="header_sec">
+                  <strong class="primary-font">{{selectedContact.first}}</strong> <strong class="pull-right">
+                  09:45AM</strong>
+               </div>
+            </div>
+		 </div>		 
+		 <div #scrollContainer class="chat_area"  style="overflow-y: scroll !important;" >
+		 <ul class="list-unstyled" >
+         <li  *ngFor="let message of messages.slice(1)" class="left clearfix" >
+            <span [ngClass]="getMessageClasses(message.sender)">
+               <img [src]="getImageUrl(message.sender === userInfo.email ? userInfo.profile_image : (findUserByEmail(message.sender)?.profile_image || 'default_image_url'))" alt="User Avatar" class="img-circle">
+            </span>
+            <div class="chat-body1 clearfix">
+           <p>{{message.content}}</p>
+           <div class="chat_time pull-right">{{message.timestamp ? formatMessageTime(message.timestamp) : ''}}</div>
+            </div>
+         </li>		 
+		 </ul>
+		 </div>
+         <form [formGroup]="chatForm" (submit)="sendMessage(selectedContact)">
+         <div class="message_write">
+            <div class="row">
+              <div class="col-md-10">
+                <textarea class="form-control" rows="" placeholder="type a message" formControlName="message"></textarea>
+              </div>
+              <div class="col-md-1">
+                <div class="chat_bottom">
+                  <button type="submit" class="btn btn-success pull-right" >Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+		 </div>
+         </div>
+      </div>
+   </div>
+</div>
