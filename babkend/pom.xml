@@ -42,14 +42,16 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-messaging</artifactId>
-
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
+        <!-- Remove this duplicate -->
+        <!--
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-messaging</artifactId>
             <version>5.7.0</version>
         </dependency>
+        -->
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
         <dependency>
@@ -70,11 +72,7 @@
             <artifactId>mssql-jdbc</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-spring-boot</artifactId>
-            <version>6.0.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
@@ -83,11 +81,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-api-client</artifactId>
-            <version>6.0.0</version>
-        </dependency>
+
         <!-- Thanks for using https://jar-download.com -->
 
         <dependency>
@@ -109,37 +103,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.linecorp.bot/line-bot-parser -->
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-parser</artifactId>
-            <version>6.0.0</version>
-            <scope>runtime</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.linecorp.bot/line-bot-model -->
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-model</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.linecorp.bot/line-bot-servlet -->
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-servlet</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.linecorp.bot/line-bot-api-client -->
-        <dependency>
-            <groupId>com.linecorp.bot</groupId>
-            <artifactId>line-bot-api-client</artifactId>
-            <version>6.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>6.3.2</version>
-
+            <version>5.7.0</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
@@ -160,8 +127,18 @@
             <version>5.7.0</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-messaging</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <scope>annotationProcessor</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.google.cloud/google-cloud-dialogflow -->
 
